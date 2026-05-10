@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>My Analytics Demo</title>
+  <meta name="description" content="Simple website for Google Analytics testing" />
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Google Analytics -->
+  <!-- Replace G-XXXXXXXXXX with your GA4 ID -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag(){
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Google Analytics Demo Website</h1>
+
+    <p>
+      This website is hosted on Render and connected with
+      Google Analytics & Search Console.
+    </p>
+
+    <button onclick="trackButtonClick()">
+      Click Me
+    </button>
+  </div>
+
+  <script>
+    function trackButtonClick() {
+
+      gtag('event', 'button_click', {
+        event_category: 'engagement',
+        event_label: 'demo button'
+      });
+
+      alert("Event Sent To Google Analytics!");
+    }
+  </script>
+
+</body>
+</html>
